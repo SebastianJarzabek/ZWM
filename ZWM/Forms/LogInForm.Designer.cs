@@ -54,6 +54,7 @@
             this.AddUser_btn.TabIndex = 2;
             this.AddUser_btn.Text = "Dodaj użytkownika";
             this.AddUser_btn.UseVisualStyleBackColor = true;
+            this.AddUser_btn.Click += new System.EventHandler(this.AddUser_btn_Click);
             // 
             // label1
             // 

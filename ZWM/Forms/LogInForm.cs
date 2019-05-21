@@ -16,5 +16,17 @@ namespace ZWM.Forms
         {
             InitializeComponent();
         }
+
+        private void AddUser_btn_Click(object sender, EventArgs e)
+        {
+            //Otwarcie nowego okna, usunięcie obecnego.
+            using (var okno = new AddUserForm())
+            {
+                this.Visible = false;
+                okno.ShowInTaskbar = false;
+                okno.ShowDialog();
+                this.Visible = true;
+            }
+        }
     }
 }

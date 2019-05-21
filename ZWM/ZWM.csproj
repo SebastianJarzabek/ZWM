@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\FolderOperactionClass.cs" />
+    <Compile Include="Classes\ZwmInstanceClass.cs" />
     <Compile Include="Forms\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,8 +124,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
