@@ -63,6 +63,25 @@
             this.WZ_dgv = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ListZWM_dgv = new System.Windows.Forms.DataGridView();
+            this.idZamowienia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kontract = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Kilometer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.jm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uwagi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TerminOdbioru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSet = new ZWM.ZWMDataSet();
+            this.CloseProgram_btn = new System.Windows.Forms.Button();
+            this.zWMDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zamowieniaTableAdapter = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.idZamowieniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idKierownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idkontraktuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,12 +90,6 @@
             this.planowanyTerminOdbioruDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUwagiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.odbiorZMagazynuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zWMDataSet = new ZWM.ZWMDataSet();
-            this.CloseProgram_btn = new System.Windows.Forms.Button();
-            this.zWMDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zamowieniaTableAdapter = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -92,6 +105,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSetBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -177,7 +192,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 28);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 422);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(800, 505);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // tabControl1
@@ -413,6 +428,17 @@
             this.ListZWM_dgv.AutoGenerateColumns = false;
             this.ListZWM_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListZWM_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idZamowienia,
+            this.name,
+            this.Surname,
+            this.Kontract,
+            this.Kilometer,
+            this.MaterialName,
+            this.MaterialType,
+            this.jm,
+            this.ilosc,
+            this.Uwagi,
+            this.TerminOdbioru,
             this.idZamowieniaDataGridViewTextBoxColumn,
             this.idKierownikaDataGridViewTextBoxColumn,
             this.idkontraktuDataGridViewTextBoxColumn,
@@ -428,6 +454,114 @@
             this.ListZWM_dgv.RowTemplate.Height = 24;
             this.ListZWM_dgv.Size = new System.Drawing.Size(777, 345);
             this.ListZWM_dgv.TabIndex = 0;
+            // 
+            // idZamowienia
+            // 
+            this.idZamowienia.DataPropertyName = "idZamowienia";
+            this.idZamowienia.HeaderText = "idZamowienia";
+            this.idZamowienia.Name = "idZamowienia";
+            this.idZamowienia.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Imie";
+            this.name.Name = "name";
+            // 
+            // Surname
+            // 
+            this.Surname.HeaderText = "Nazwisko";
+            this.Surname.Name = "Surname";
+            // 
+            // Kontract
+            // 
+            this.Kontract.HeaderText = "Kontrakt";
+            this.Kontract.Name = "Kontract";
+            // 
+            // Kilometer
+            // 
+            this.Kilometer.HeaderText = "Kilometr";
+            this.Kilometer.Name = "Kilometer";
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.DataPropertyName = "idZamowienia";
+            this.MaterialName.HeaderText = "Nazwa Materiału";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.ReadOnly = true;
+            // 
+            // MaterialType
+            // 
+            this.MaterialType.DataPropertyName = "idZamowienia";
+            this.MaterialType.HeaderText = "Typ Materiału";
+            this.MaterialType.Name = "MaterialType";
+            this.MaterialType.ReadOnly = true;
+            // 
+            // jm
+            // 
+            this.jm.DataPropertyName = "idZamowienia";
+            this.jm.HeaderText = "J.M.";
+            this.jm.Name = "jm";
+            this.jm.ReadOnly = true;
+            // 
+            // ilosc
+            // 
+            this.ilosc.DataPropertyName = "idZamowienia";
+            this.ilosc.HeaderText = "Ilość";
+            this.ilosc.Name = "ilosc";
+            this.ilosc.ReadOnly = true;
+            // 
+            // Uwagi
+            // 
+            this.Uwagi.DataPropertyName = "idZamowienia";
+            this.Uwagi.HeaderText = "Uwagi do zamówienia";
+            this.Uwagi.Name = "Uwagi";
+            this.Uwagi.ReadOnly = true;
+            // 
+            // TerminOdbioru
+            // 
+            this.TerminOdbioru.DataPropertyName = "idZamowienia";
+            this.TerminOdbioru.HeaderText = "Termin odbioru ";
+            this.TerminOdbioru.Name = "TerminOdbioru";
+            this.TerminOdbioru.ReadOnly = true;
+            // 
+            // zamowieniaBindingSource
+            // 
+            this.zamowieniaBindingSource.DataMember = "Zamowienia";
+            this.zamowieniaBindingSource.DataSource = this.zWMDataSet;
+            // 
+            // zWMDataSet
+            // 
+            this.zWMDataSet.DataSetName = "ZWMDataSet";
+            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CloseProgram_btn
+            // 
+            this.CloseProgram_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CloseProgram_btn.Location = new System.Drawing.Point(3, 383);
+            this.CloseProgram_btn.Name = "CloseProgram_btn";
+            this.CloseProgram_btn.Size = new System.Drawing.Size(100, 25);
+            this.CloseProgram_btn.TabIndex = 0;
+            this.CloseProgram_btn.Text = "Zamknij";
+            this.CloseProgram_btn.UseVisualStyleBackColor = true;
+            // 
+            // zWMDataSetBindingSource
+            // 
+            this.zWMDataSetBindingSource.DataSource = this.zWMDataSet;
+            this.zWMDataSetBindingSource.Position = 0;
+            // 
+            // zamowieniaTableAdapter
+            // 
+            this.zamowieniaTableAdapter.ClearBeforeFill = true;
+            // 
+            // zWMDataSetBindingSource1
+            // 
+            this.zWMDataSetBindingSource1.DataSource = this.zWMDataSet;
+            this.zWMDataSetBindingSource1.Position = 0;
+            // 
+            // zWMDataSetBindingSource2
+            // 
+            this.zWMDataSetBindingSource2.DataSource = this.zWMDataSet;
+            this.zWMDataSetBindingSource2.Position = 0;
             // 
             // idZamowieniaDataGridViewTextBoxColumn
             // 
@@ -478,40 +612,11 @@
             this.odbiorZMagazynuDataGridViewTextBoxColumn.HeaderText = "odbiorZMagazynu";
             this.odbiorZMagazynuDataGridViewTextBoxColumn.Name = "odbiorZMagazynuDataGridViewTextBoxColumn";
             // 
-            // zamowieniaBindingSource
-            // 
-            this.zamowieniaBindingSource.DataMember = "Zamowienia";
-            this.zamowieniaBindingSource.DataSource = this.zWMDataSet;
-            // 
-            // zWMDataSet
-            // 
-            this.zWMDataSet.DataSetName = "ZWMDataSet";
-            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // CloseProgram_btn
-            // 
-            this.CloseProgram_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CloseProgram_btn.Location = new System.Drawing.Point(3, 383);
-            this.CloseProgram_btn.Name = "CloseProgram_btn";
-            this.CloseProgram_btn.Size = new System.Drawing.Size(100, 25);
-            this.CloseProgram_btn.TabIndex = 0;
-            this.CloseProgram_btn.Text = "Zamknij";
-            this.CloseProgram_btn.UseVisualStyleBackColor = true;
-            // 
-            // zWMDataSetBindingSource
-            // 
-            this.zWMDataSetBindingSource.DataSource = this.zWMDataSet;
-            this.zWMDataSetBindingSource.Position = 0;
-            // 
-            // zamowieniaTableAdapter
-            // 
-            this.zamowieniaTableAdapter.ClearBeforeFill = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 533);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -535,6 +640,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSetBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,6 +689,19 @@
         private System.Windows.Forms.ToolStripMenuItem AddExcelFileZWM__tsmi;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem CloseProgram_tsmi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idZamowienia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kontract;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Kilometer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn jm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ilosc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uwagi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TerminOdbioru;
+        private System.Windows.Forms.BindingSource zWMDataSetBindingSource1;
+        private System.Windows.Forms.BindingSource zWMDataSetBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn idZamowieniaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idKierownikaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idkontraktuDataGridViewTextBoxColumn;
