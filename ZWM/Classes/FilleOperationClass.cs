@@ -15,7 +15,6 @@ namespace ZWM.Classes
         private string zwmfolderPatch = @"ZWM-pliki\Archiwum\ZWM";
         private string wzFolderPatch = @"ZWM-pliki\Archiwum\WZ";
         private string CurrentDirectory = @"Environment.CurrentDirectory";
-        //private string destFile = @"Path.Combine(archivesFolderPatch, zwmfolderPatch, newZWMFileName)";
         private int orderId;
         private string name;
         private string surname;
@@ -107,7 +106,7 @@ namespace ZWM.Classes
 
             System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
             return newWZFileName;
-        }
+        }//Nie skonczone brak pliku do zapisu, jedynie nadaje nazwe
 
 
 

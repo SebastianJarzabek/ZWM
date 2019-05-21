@@ -91,6 +91,10 @@ namespace ZWM.Classes
         #endregion
 
         #region constructor
+        public ZwmInstanceClass()
+        {
+
+        }
 
         public ZwmInstanceClass(int orderIdProperty, string nameProperty, string surnameProperty, string contractNumberProperty, string kilometerProperty, string materialNameProperty, string materialTypeProperty, string nameOfTheMaterialUnitProperty, int quantityProperty, DateTime plannedDateOfReceiptProperty, string attentionProperty, DateTime dateOfReceiptProperty)
         {

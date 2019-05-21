@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -61,8 +64,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ExcelClass.cs" />
     <Compile Include="Classes\FilleOperationClass.cs" />
     <Compile Include="Classes\FolderOperactionClass.cs" />
+    <Compile Include="Classes\MainClass.cs" />
     <Compile Include="Classes\ZwmInstanceClass.cs" />
     <Compile Include="Forms\AddUserForm.cs">
       <SubType>Form</SubType>
