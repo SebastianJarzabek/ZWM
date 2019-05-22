@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZWM.Classes;
 
 namespace ZWM.Forms
 {
@@ -27,6 +28,43 @@ namespace ZWM.Forms
         private void doToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CloseProgram_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GoToFormManualAdditionZWM_btn_Click(object sender, EventArgs e)
+        {
+            //Otwarcie nowego okna, usunięcie obecnego.
+            using (var okno = new ManualAdditionZWMForm())
+            {
+                this.Visible = false;
+                okno.ShowInTaskbar = false;
+                okno.ShowDialog();
+                this.Visible = true;
+            }
+        }
+
+        private void AddExcelFileZWM_btn_Click(object sender, EventArgs e)
+        {
+            MainClass nowy = new MainClass();
+            FolderOperactionClass folderOperaction = new FolderOperactionClass(); 
+
+            
+            if (folderOperaction.IsBaseFolderZWMExist())
+                return;
+            else folderOperaction.IfBaseFolderDontExistCopyIt();
+
+            nowy.AddPatchToZWMFile();
+
+
+        }
+
+        private void PrintLastAddedDocumentsZWMandWZ_btn_Click(object sender, EventArgs e)
+        {
+            //Drukowanie zwm i wz (ostatnio dodanego)
         }
     }
 }

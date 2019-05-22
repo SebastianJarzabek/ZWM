@@ -74,14 +74,6 @@
             this.ilosc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uwagi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerminOdbioru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zWMDataSet = new ZWM.ZWMDataSet();
-            this.CloseProgram_btn = new System.Windows.Forms.Button();
-            this.zWMDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zamowieniaTableAdapter = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.zWMDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.zWMDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.idZamowieniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idKierownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idkontraktuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +82,14 @@
             this.planowanyTerminOdbioruDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idUwagiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.odbiorZMagazynuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSet = new ZWM.ZWMDataSet();
+            this.CloseProgram_btn = new System.Windows.Forms.Button();
+            this.zWMDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zamowieniaTableAdapter = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -352,6 +352,7 @@
             this.PrintLastAddedDocumentsZWMandWZ_btn.TabIndex = 2;
             this.PrintLastAddedDocumentsZWMandWZ_btn.Text = "Drukuj";
             this.PrintLastAddedDocumentsZWMandWZ_btn.UseVisualStyleBackColor = true;
+            this.PrintLastAddedDocumentsZWMandWZ_btn.Click += new System.EventHandler(this.PrintLastAddedDocumentsZWMandWZ_btn_Click);
             // 
             // AddExcelFileZWM_btn
             // 
@@ -361,6 +362,7 @@
             this.AddExcelFileZWM_btn.TabIndex = 1;
             this.AddExcelFileZWM_btn.Text = "Dodaj";
             this.AddExcelFileZWM_btn.UseVisualStyleBackColor = true;
+            this.AddExcelFileZWM_btn.Click += new System.EventHandler(this.AddExcelFileZWM_btn_Click);
             // 
             // GoToFormManualAdditionZWM_btn
             // 
@@ -370,6 +372,7 @@
             this.GoToFormManualAdditionZWM_btn.TabIndex = 0;
             this.GoToFormManualAdditionZWM_btn.Text = "Wprowadź";
             this.GoToFormManualAdditionZWM_btn.UseVisualStyleBackColor = true;
+            this.GoToFormManualAdditionZWM_btn.Click += new System.EventHandler(this.GoToFormManualAdditionZWM_btn_Click);
             // 
             // tabPage2
             // 
@@ -524,45 +527,6 @@
             this.TerminOdbioru.Name = "TerminOdbioru";
             this.TerminOdbioru.ReadOnly = true;
             // 
-            // zamowieniaBindingSource
-            // 
-            this.zamowieniaBindingSource.DataMember = "Zamowienia";
-            this.zamowieniaBindingSource.DataSource = this.zWMDataSet;
-            // 
-            // zWMDataSet
-            // 
-            this.zWMDataSet.DataSetName = "ZWMDataSet";
-            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // CloseProgram_btn
-            // 
-            this.CloseProgram_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CloseProgram_btn.Location = new System.Drawing.Point(3, 383);
-            this.CloseProgram_btn.Name = "CloseProgram_btn";
-            this.CloseProgram_btn.Size = new System.Drawing.Size(100, 25);
-            this.CloseProgram_btn.TabIndex = 0;
-            this.CloseProgram_btn.Text = "Zamknij";
-            this.CloseProgram_btn.UseVisualStyleBackColor = true;
-            // 
-            // zWMDataSetBindingSource
-            // 
-            this.zWMDataSetBindingSource.DataSource = this.zWMDataSet;
-            this.zWMDataSetBindingSource.Position = 0;
-            // 
-            // zamowieniaTableAdapter
-            // 
-            this.zamowieniaTableAdapter.ClearBeforeFill = true;
-            // 
-            // zWMDataSetBindingSource1
-            // 
-            this.zWMDataSetBindingSource1.DataSource = this.zWMDataSet;
-            this.zWMDataSetBindingSource1.Position = 0;
-            // 
-            // zWMDataSetBindingSource2
-            // 
-            this.zWMDataSetBindingSource2.DataSource = this.zWMDataSet;
-            this.zWMDataSetBindingSource2.Position = 0;
-            // 
             // idZamowieniaDataGridViewTextBoxColumn
             // 
             this.idZamowieniaDataGridViewTextBoxColumn.DataPropertyName = "idZamowienia";
@@ -611,6 +575,46 @@
             this.odbiorZMagazynuDataGridViewTextBoxColumn.DataPropertyName = "odbiorZMagazynu";
             this.odbiorZMagazynuDataGridViewTextBoxColumn.HeaderText = "odbiorZMagazynu";
             this.odbiorZMagazynuDataGridViewTextBoxColumn.Name = "odbiorZMagazynuDataGridViewTextBoxColumn";
+            // 
+            // zamowieniaBindingSource
+            // 
+            this.zamowieniaBindingSource.DataMember = "Zamowienia";
+            this.zamowieniaBindingSource.DataSource = this.zWMDataSet;
+            // 
+            // zWMDataSet
+            // 
+            this.zWMDataSet.DataSetName = "ZWMDataSet";
+            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CloseProgram_btn
+            // 
+            this.CloseProgram_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CloseProgram_btn.Location = new System.Drawing.Point(3, 383);
+            this.CloseProgram_btn.Name = "CloseProgram_btn";
+            this.CloseProgram_btn.Size = new System.Drawing.Size(100, 25);
+            this.CloseProgram_btn.TabIndex = 0;
+            this.CloseProgram_btn.Text = "Zamknij";
+            this.CloseProgram_btn.UseVisualStyleBackColor = true;
+            this.CloseProgram_btn.Click += new System.EventHandler(this.CloseProgram_btn_Click);
+            // 
+            // zWMDataSetBindingSource
+            // 
+            this.zWMDataSetBindingSource.DataSource = this.zWMDataSet;
+            this.zWMDataSetBindingSource.Position = 0;
+            // 
+            // zamowieniaTableAdapter
+            // 
+            this.zamowieniaTableAdapter.ClearBeforeFill = true;
+            // 
+            // zWMDataSetBindingSource1
+            // 
+            this.zWMDataSetBindingSource1.DataSource = this.zWMDataSet;
+            this.zWMDataSetBindingSource1.Position = 0;
+            // 
+            // zWMDataSetBindingSource2
+            // 
+            this.zWMDataSetBindingSource2.DataSource = this.zWMDataSet;
+            this.zWMDataSetBindingSource2.Position = 0;
             // 
             // MainForm
             // 

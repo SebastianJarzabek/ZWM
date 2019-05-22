@@ -1,6 +1,6 @@
 ﻿namespace ZWM.Forms
 {
-    partial class ManualAdditionZWM
+    partial class ManualAdditionZWMForm
     {
         /// <summary>
         /// Required designer variable.

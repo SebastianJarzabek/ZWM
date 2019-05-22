@@ -140,6 +140,7 @@
             this.AddUser_btn.TabIndex = 2;
             this.AddUser_btn.Text = "Dodaj użytkownika";
             this.AddUser_btn.UseVisualStyleBackColor = true;
+            this.AddUser_btn.Click += new System.EventHandler(this.AddUser_btn_Click);
             // 
             // ClearTextBoxes_btn
             // 
@@ -149,6 +150,7 @@
             this.ClearTextBoxes_btn.TabIndex = 0;
             this.ClearTextBoxes_btn.Text = "Wyczyść";
             this.ClearTextBoxes_btn.UseVisualStyleBackColor = true;
+            this.ClearTextBoxes_btn.Click += new System.EventHandler(this.ClearTextBoxes_btn_Click);
             // 
             // BackToTheFirstForm_btn
             // 
@@ -158,6 +160,7 @@
             this.BackToTheFirstForm_btn.TabIndex = 1;
             this.BackToTheFirstForm_btn.Text = "Cofnij";
             this.BackToTheFirstForm_btn.UseVisualStyleBackColor = true;
+            this.BackToTheFirstForm_btn.Click += new System.EventHandler(this.BackToTheFirstForm_btn_Click);
             // 
             // CloseProgram_btn
             // 
@@ -167,6 +170,7 @@
             this.CloseProgram_btn.TabIndex = 3;
             this.CloseProgram_btn.Text = "Zamknij";
             this.CloseProgram_btn.UseVisualStyleBackColor = true;
+            this.CloseProgram_btn.Click += new System.EventHandler(this.CloseProgram_btn_Click);
             // 
             // label6
             // 
