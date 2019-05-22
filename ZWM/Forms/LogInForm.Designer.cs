@@ -91,6 +91,7 @@
             this.ClearTextBoxes_btn.TabIndex = 3;
             this.ClearTextBoxes_btn.Text = "Wyczyść";
             this.ClearTextBoxes_btn.UseVisualStyleBackColor = true;
+            this.ClearTextBoxes_btn.Click += new System.EventHandler(this.ClearTextBoxes_btn_Click);
             // 
             // LogIn_btn
             // 
@@ -100,6 +101,7 @@
             this.LogIn_btn.TabIndex = 4;
             this.LogIn_btn.Text = "Zaloguj";
             this.LogIn_btn.UseVisualStyleBackColor = true;
+            this.LogIn_btn.Click += new System.EventHandler(this.LogIn_btn_Click);
             // 
             // CloseProgram_btn
             // 
@@ -109,6 +111,7 @@
             this.CloseProgram_btn.TabIndex = 5;
             this.CloseProgram_btn.Text = "Zamknij";
             this.CloseProgram_btn.UseVisualStyleBackColor = true;
+            this.CloseProgram_btn.Click += new System.EventHandler(this.CloseProgram_btn_Click);
             // 
             // label3
             // 

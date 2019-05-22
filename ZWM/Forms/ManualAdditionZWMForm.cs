@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ZWM.Forms
 {
-    public partial class ManualAdditionZWM : Form
+    public partial class ManualAdditionZWMForm : Form
     {
-        public ManualAdditionZWM()
+        public ManualAdditionZWMForm()
         {
             InitializeComponent();
         }

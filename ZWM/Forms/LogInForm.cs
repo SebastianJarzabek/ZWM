@@ -28,5 +28,30 @@ namespace ZWM.Forms
                 this.Visible = true;
             }
         }
+
+        private void LogIn_btn_Click(object sender, EventArgs e)
+        {
+            //TODO Pobierz dane, Sprawdz czy sa zgodne z danymi z baza
+
+            //Otwarcie nowego okna, usunięcie obecnego.
+            using (var okno = new MainForm())
+            {
+                this.Visible = false;
+                okno.ShowInTaskbar = false;
+                okno.ShowDialog();
+                this.Visible = true;
+            }
+        }
+
+        private void ClearTextBoxes_btn_Click(object sender, EventArgs e)
+        {
+            login_tb.Text = "";
+            Password_tb.Text = " ";
+        }
+
+        private void CloseProgram_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
