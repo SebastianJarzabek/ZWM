@@ -12,8 +12,9 @@ namespace ZWM.Classes
     class FolderOperactionClass
     {
         #region Zwm_Instance_variables
-        private string desktopPatch = @"Environment.SpecialFolder.Desktop";
         private string baseFolderName = "ZWM-pliki";
+        private string desktopPatch = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        
         private string CurrentDirectory = Directory.GetCurrentDirectory();
         #endregion Zwm_Instance_variables
         #region Zwm_Instance_variables_Property
@@ -37,8 +38,11 @@ namespace ZWM.Classes
 
         public void IfBaseFolderDontExistCopyIt()
         {
-
+            //Przeniesie plik, a nie skopiuje -----Do poprawki
+            Directory.Move(Path.Combine(CurrentDirectory, baseFolderName), Path.Combine(desktopPatch, baseFolderName));
+            
         }
         #endregion
     }
 }
+
