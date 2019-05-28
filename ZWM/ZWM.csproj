@@ -68,6 +68,7 @@
     <Compile Include="Classes\FilleOperationClass.cs" />
     <Compile Include="Classes\FolderOperactionClass.cs" />
     <Compile Include="Classes\MainClass.cs" />
+    <Compile Include="Classes\UserClass.cs" />
     <Compile Include="Classes\ZwmInstanceClass.cs" />
     <Compile Include="Forms\AddUserForm.cs">
       <SubType>Form</SubType>

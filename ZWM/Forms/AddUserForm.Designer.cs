@@ -41,7 +41,6 @@
             this.AddUser_btn = new System.Windows.Forms.Button();
             this.ClearTextBoxes_btn = new System.Windows.Forms.Button();
             this.BackToTheFirstForm_btn = new System.Windows.Forms.Button();
-            this.CloseProgram_btn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -134,7 +133,7 @@
             // 
             // AddUser_btn
             // 
-            this.AddUser_btn.Location = new System.Drawing.Point(9, 233);
+            this.AddUser_btn.Location = new System.Drawing.Point(218, 233);
             this.AddUser_btn.Name = "AddUser_btn";
             this.AddUser_btn.Size = new System.Drawing.Size(150, 25);
             this.AddUser_btn.TabIndex = 2;
@@ -154,23 +153,13 @@
             // 
             // BackToTheFirstForm_btn
             // 
-            this.BackToTheFirstForm_btn.Location = new System.Drawing.Point(218, 202);
+            this.BackToTheFirstForm_btn.Location = new System.Drawing.Point(9, 233);
             this.BackToTheFirstForm_btn.Name = "BackToTheFirstForm_btn";
             this.BackToTheFirstForm_btn.Size = new System.Drawing.Size(150, 25);
             this.BackToTheFirstForm_btn.TabIndex = 1;
             this.BackToTheFirstForm_btn.Text = "Cofnij";
             this.BackToTheFirstForm_btn.UseVisualStyleBackColor = true;
             this.BackToTheFirstForm_btn.Click += new System.EventHandler(this.BackToTheFirstForm_btn_Click);
-            // 
-            // CloseProgram_btn
-            // 
-            this.CloseProgram_btn.Location = new System.Drawing.Point(218, 233);
-            this.CloseProgram_btn.Name = "CloseProgram_btn";
-            this.CloseProgram_btn.Size = new System.Drawing.Size(150, 25);
-            this.CloseProgram_btn.TabIndex = 3;
-            this.CloseProgram_btn.Text = "Zamknij";
-            this.CloseProgram_btn.UseVisualStyleBackColor = true;
-            this.CloseProgram_btn.Click += new System.EventHandler(this.CloseProgram_btn_Click);
             // 
             // label6
             // 
@@ -206,7 +195,6 @@
             this.ClientSize = new System.Drawing.Size(377, 267);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.CloseProgram_btn);
             this.Controls.Add(this.BackToTheFirstForm_btn);
             this.Controls.Add(this.ClearTextBoxes_btn);
             this.Controls.Add(this.AddUser_btn);
@@ -239,7 +227,6 @@
         private System.Windows.Forms.Button AddUser_btn;
         private System.Windows.Forms.Button ClearTextBoxes_btn;
         private System.Windows.Forms.Button BackToTheFirstForm_btn;
-        private System.Windows.Forms.Button CloseProgram_btn;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
     }

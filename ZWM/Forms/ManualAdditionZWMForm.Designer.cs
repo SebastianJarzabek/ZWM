@@ -38,32 +38,41 @@
             this.ContractNumber_cb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.Name_cb = new System.Windows.Forms.ComboBox();
+            this.kierownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSet = new ZWM.ZWMDataSet();
             this.Surname_cb = new System.Windows.Forms.ComboBox();
+            this.kierownicyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Materials_dgv = new System.Windows.Forms.DataGridView();
-            this.idZamowieniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idKierownikaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idkontraktuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMaterialuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iloscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.planowanyTerminOdbioruDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUwagiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.odbiorZMagazynuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zWMDataSet = new ZWM.ZWMDataSet();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Comments_tb = new System.Windows.Forms.TextBox();
             this.BackToTheFirstForm_btn = new System.Windows.Forms.Button();
             this.ManualAdditionZWM_btn = new System.Windows.Forms.Button();
             this.ClouseProgram_btn = new System.Windows.Forms.Button();
             this.zamowieniaTableAdapter = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
+            this.zamowieniaTableAdapter1 = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
+            this.kierownicyTableAdapter = new ZWM.ZWMDataSetTableAdapters.KierownicyTableAdapter();
+            this.kontraktyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kontraktyTableAdapter = new ZWM.ZWMDataSetTableAdapters.KontraktyTableAdapter();
+            this.kontraktyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zadysponowana = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jednostka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Materials_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zamowieniaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,6 +87,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.DateOfReceipt_dtp);
             this.groupBox1.Controls.Add(this.Kilometer_cb);
@@ -88,9 +99,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.Surname_cb);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.flowLayoutPanel2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(637, 118);
+            this.groupBox1.Size = new System.Drawing.Size(646, 123);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dane";
@@ -107,18 +119,21 @@
             // 
             // DateOfReceipt_dtp
             // 
-            this.DateOfReceipt_dtp.Location = new System.Drawing.Point(244, 81);
+            this.DateOfReceipt_dtp.Location = new System.Drawing.Point(426, 81);
             this.DateOfReceipt_dtp.Name = "DateOfReceipt_dtp";
-            this.DateOfReceipt_dtp.Size = new System.Drawing.Size(382, 22);
+            this.DateOfReceipt_dtp.Size = new System.Drawing.Size(200, 22);
             this.DateOfReceipt_dtp.TabIndex = 4;
             // 
             // Kilometer_cb
             // 
+            this.Kilometer_cb.DataSource = this.kontraktyBindingSource1;
+            this.Kilometer_cb.DisplayMember = "kilometr";
             this.Kilometer_cb.FormattingEnabled = true;
             this.Kilometer_cb.Location = new System.Drawing.Point(426, 47);
             this.Kilometer_cb.Name = "Kilometer_cb";
             this.Kilometer_cb.Size = new System.Drawing.Size(200, 24);
             this.Kilometer_cb.TabIndex = 3;
+            this.Kilometer_cb.ValueMember = "kilometr";
             // 
             // label4
             // 
@@ -132,11 +147,14 @@
             // 
             // ContractNumber_cb
             // 
+            this.ContractNumber_cb.DataSource = this.kontraktyBindingSource;
+            this.ContractNumber_cb.DisplayMember = "numerKontraktu";
             this.ContractNumber_cb.FormattingEnabled = true;
             this.ContractNumber_cb.Location = new System.Drawing.Point(128, 47);
             this.ContractNumber_cb.Name = "ContractNumber_cb";
             this.ContractNumber_cb.Size = new System.Drawing.Size(200, 24);
             this.ContractNumber_cb.TabIndex = 2;
+            this.ContractNumber_cb.ValueMember = "numerKontraktu";
             // 
             // label3
             // 
@@ -150,19 +168,40 @@
             // 
             // Name_cb
             // 
+            this.Name_cb.DataSource = this.kierownicyBindingSource;
+            this.Name_cb.DisplayMember = "imie";
             this.Name_cb.FormattingEnabled = true;
             this.Name_cb.Location = new System.Drawing.Point(128, 17);
             this.Name_cb.Name = "Name_cb";
             this.Name_cb.Size = new System.Drawing.Size(200, 24);
             this.Name_cb.TabIndex = 0;
+            this.Name_cb.ValueMember = "imie";
+            // 
+            // kierownicyBindingSource
+            // 
+            this.kierownicyBindingSource.DataMember = "Kierownicy";
+            this.kierownicyBindingSource.DataSource = this.zWMDataSet;
+            // 
+            // zWMDataSet
+            // 
+            this.zWMDataSet.DataSetName = "ZWMDataSet";
+            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Surname_cb
             // 
+            this.Surname_cb.DataSource = this.kierownicyBindingSource1;
+            this.Surname_cb.DisplayMember = "nazwisko";
             this.Surname_cb.FormattingEnabled = true;
             this.Surname_cb.Location = new System.Drawing.Point(426, 17);
             this.Surname_cb.Name = "Surname_cb";
             this.Surname_cb.Size = new System.Drawing.Size(200, 24);
             this.Surname_cb.TabIndex = 1;
+            this.Surname_cb.ValueMember = "nazwisko";
+            // 
+            // kierownicyBindingSource1
+            // 
+            this.kierownicyBindingSource1.DataMember = "Kierownicy";
+            this.kierownicyBindingSource1.DataSource = this.zWMDataSet;
             // 
             // label2
             // 
@@ -176,6 +215,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.Materials_dgv);
             this.groupBox2.Location = new System.Drawing.Point(12, 137);
             this.groupBox2.Name = "groupBox2";
@@ -187,86 +227,29 @@
             // Materials_dgv
             // 
             this.Materials_dgv.AllowUserToOrderColumns = true;
-            this.Materials_dgv.AutoGenerateColumns = false;
             this.Materials_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Materials_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idZamowieniaDataGridViewTextBoxColumn,
-            this.idKierownikaDataGridViewTextBoxColumn,
-            this.idkontraktuDataGridViewTextBoxColumn,
-            this.idMaterialuDataGridViewTextBoxColumn,
-            this.iloscDataGridViewTextBoxColumn,
-            this.planowanyTerminOdbioruDataGridViewTextBoxColumn,
-            this.idUwagiDataGridViewTextBoxColumn,
-            this.odbiorZMagazynuDataGridViewTextBoxColumn});
-            this.Materials_dgv.DataSource = this.zamowieniaBindingSource;
+            this.Nazwa,
+            this.Typ,
+            this.Zadysponowana,
+            this.Jednostka});
             this.Materials_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Materials_dgv.Location = new System.Drawing.Point(3, 18);
             this.Materials_dgv.Name = "Materials_dgv";
             this.Materials_dgv.RowTemplate.Height = 24;
             this.Materials_dgv.Size = new System.Drawing.Size(631, 336);
             this.Materials_dgv.TabIndex = 0;
-            // 
-            // idZamowieniaDataGridViewTextBoxColumn
-            // 
-            this.idZamowieniaDataGridViewTextBoxColumn.DataPropertyName = "idZamowienia";
-            this.idZamowieniaDataGridViewTextBoxColumn.HeaderText = "idZamowienia";
-            this.idZamowieniaDataGridViewTextBoxColumn.Name = "idZamowieniaDataGridViewTextBoxColumn";
-            this.idZamowieniaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idKierownikaDataGridViewTextBoxColumn
-            // 
-            this.idKierownikaDataGridViewTextBoxColumn.DataPropertyName = "idKierownika";
-            this.idKierownikaDataGridViewTextBoxColumn.HeaderText = "idKierownika";
-            this.idKierownikaDataGridViewTextBoxColumn.Name = "idKierownikaDataGridViewTextBoxColumn";
-            // 
-            // idkontraktuDataGridViewTextBoxColumn
-            // 
-            this.idkontraktuDataGridViewTextBoxColumn.DataPropertyName = "idkontraktu";
-            this.idkontraktuDataGridViewTextBoxColumn.HeaderText = "idkontraktu";
-            this.idkontraktuDataGridViewTextBoxColumn.Name = "idkontraktuDataGridViewTextBoxColumn";
-            // 
-            // idMaterialuDataGridViewTextBoxColumn
-            // 
-            this.idMaterialuDataGridViewTextBoxColumn.DataPropertyName = "idMaterialu";
-            this.idMaterialuDataGridViewTextBoxColumn.HeaderText = "idMaterialu";
-            this.idMaterialuDataGridViewTextBoxColumn.Name = "idMaterialuDataGridViewTextBoxColumn";
-            // 
-            // iloscDataGridViewTextBoxColumn
-            // 
-            this.iloscDataGridViewTextBoxColumn.DataPropertyName = "ilosc";
-            this.iloscDataGridViewTextBoxColumn.HeaderText = "ilosc";
-            this.iloscDataGridViewTextBoxColumn.Name = "iloscDataGridViewTextBoxColumn";
-            // 
-            // planowanyTerminOdbioruDataGridViewTextBoxColumn
-            // 
-            this.planowanyTerminOdbioruDataGridViewTextBoxColumn.DataPropertyName = "planowanyTerminOdbioru";
-            this.planowanyTerminOdbioruDataGridViewTextBoxColumn.HeaderText = "planowanyTerminOdbioru";
-            this.planowanyTerminOdbioruDataGridViewTextBoxColumn.Name = "planowanyTerminOdbioruDataGridViewTextBoxColumn";
-            // 
-            // idUwagiDataGridViewTextBoxColumn
-            // 
-            this.idUwagiDataGridViewTextBoxColumn.DataPropertyName = "idUwagi";
-            this.idUwagiDataGridViewTextBoxColumn.HeaderText = "idUwagi";
-            this.idUwagiDataGridViewTextBoxColumn.Name = "idUwagiDataGridViewTextBoxColumn";
-            // 
-            // odbiorZMagazynuDataGridViewTextBoxColumn
-            // 
-            this.odbiorZMagazynuDataGridViewTextBoxColumn.DataPropertyName = "odbiorZMagazynu";
-            this.odbiorZMagazynuDataGridViewTextBoxColumn.HeaderText = "odbiorZMagazynu";
-            this.odbiorZMagazynuDataGridViewTextBoxColumn.Name = "odbiorZMagazynuDataGridViewTextBoxColumn";
+            this.Materials_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Materials_dgv_CellContentClick);
             // 
             // zamowieniaBindingSource
             // 
             this.zamowieniaBindingSource.DataMember = "Zamowienia";
             this.zamowieniaBindingSource.DataSource = this.zWMDataSet;
             // 
-            // zWMDataSet
-            // 
-            this.zWMDataSet.DataSetName = "ZWMDataSet";
-            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.Comments_tb);
             this.groupBox3.Location = new System.Drawing.Point(12, 500);
             this.groupBox3.Name = "groupBox3";
@@ -295,16 +278,19 @@
             // 
             // ManualAdditionZWM_btn
             // 
-            this.ManualAdditionZWM_btn.Location = new System.Drawing.Point(438, 640);
+            this.ManualAdditionZWM_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ManualAdditionZWM_btn.Location = new System.Drawing.Point(438, 650);
             this.ManualAdditionZWM_btn.Name = "ManualAdditionZWM_btn";
             this.ManualAdditionZWM_btn.Size = new System.Drawing.Size(100, 25);
             this.ManualAdditionZWM_btn.TabIndex = 1;
             this.ManualAdditionZWM_btn.Text = "Dodaj";
             this.ManualAdditionZWM_btn.UseVisualStyleBackColor = true;
+            this.ManualAdditionZWM_btn.Click += new System.EventHandler(this.ManualAdditionZWM_btn_Click);
             // 
             // ClouseProgram_btn
             // 
-            this.ClouseProgram_btn.Location = new System.Drawing.Point(543, 640);
+            this.ClouseProgram_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClouseProgram_btn.Location = new System.Drawing.Point(543, 650);
             this.ClouseProgram_btn.Name = "ClouseProgram_btn";
             this.ClouseProgram_btn.Size = new System.Drawing.Size(100, 25);
             this.ClouseProgram_btn.TabIndex = 2;
@@ -315,28 +301,92 @@
             // 
             this.zamowieniaTableAdapter.ClearBeforeFill = true;
             // 
-            // ManualAdditionZWM
+            // zamowieniaTableAdapter1
+            // 
+            this.zamowieniaTableAdapter1.ClearBeforeFill = true;
+            // 
+            // kierownicyTableAdapter
+            // 
+            this.kierownicyTableAdapter.ClearBeforeFill = true;
+            // 
+            // kontraktyBindingSource
+            // 
+            this.kontraktyBindingSource.DataMember = "Kontrakty";
+            this.kontraktyBindingSource.DataSource = this.zWMDataSet;
+            // 
+            // kontraktyTableAdapter
+            // 
+            this.kontraktyTableAdapter.ClearBeforeFill = true;
+            // 
+            // kontraktyBindingSource1
+            // 
+            this.kontraktyBindingSource1.DataMember = "Kontrakty";
+            this.kontraktyBindingSource1.DataSource = this.zWMDataSet;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 687);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 18);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(640, 102);
+            this.flowLayoutPanel2.TabIndex = 10;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            // 
+            // Typ
+            // 
+            this.Typ.HeaderText = "Typ";
+            this.Typ.Name = "Typ";
+            // 
+            // Zadysponowana
+            // 
+            this.Zadysponowana.HeaderText = "Ilość";
+            this.Zadysponowana.Name = "Zadysponowana";
+            // 
+            // Jednostka
+            // 
+            this.Jednostka.HeaderText = "Jednostka";
+            this.Jednostka.Name = "Jednostka";
+            // 
+            // ManualAdditionZWMForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 687);
+            this.ClientSize = new System.Drawing.Size(658, 687);
             this.Controls.Add(this.ClouseProgram_btn);
             this.Controls.Add(this.ManualAdditionZWM_btn);
             this.Controls.Add(this.BackToTheFirstForm_btn);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ManualAdditionZWM";
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Name = "ManualAdditionZWMForm";
             this.Text = "ManualAdditionZWM";
             this.Load += new System.EventHandler(this.ManualAdditionZWM_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Materials_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zamowieniaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,13 +414,18 @@
         private ZWMDataSet zWMDataSet;
         private System.Windows.Forms.BindingSource zamowieniaBindingSource;
         private ZWMDataSetTableAdapters.ZamowieniaTableAdapter zamowieniaTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idZamowieniaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idKierownikaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idkontraktuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMaterialuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iloscDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn planowanyTerminOdbioruDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUwagiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn odbiorZMagazynuDataGridViewTextBoxColumn;
+        private ZWMDataSetTableAdapters.ZamowieniaTableAdapter zamowieniaTableAdapter1;
+        private System.Windows.Forms.BindingSource kierownicyBindingSource;
+        private ZWMDataSetTableAdapters.KierownicyTableAdapter kierownicyTableAdapter;
+        private System.Windows.Forms.BindingSource kierownicyBindingSource1;
+        private System.Windows.Forms.BindingSource kontraktyBindingSource;
+        private ZWMDataSetTableAdapters.KontraktyTableAdapter kontraktyTableAdapter;
+        private System.Windows.Forms.BindingSource kontraktyBindingSource1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nazwa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Zadysponowana;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Jednostka;
     }
 }

@@ -28,20 +28,5 @@ namespace ZWM.Classes
 
             return fileZWMToAddPatch;
         }
-
-        
-        //public void OpenForm()
-        //{
-
-        //    //Otwarcie nowego okna, usunięcie obecnego.
-        //    using (var okno = new Form())
-        //    {
-        //        this.Visible = false;
-        //        okno.ShowInTaskbar = false;
-        //        okno.ShowDialog();
-        //        this.Visible = true;
-        //    }
-
-        //}
     }
 }

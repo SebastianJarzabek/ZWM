@@ -66,5 +66,10 @@ namespace ZWM.Forms
         {
             //Drukowanie zwm i wz (ostatnio dodanego)
         }
+
+        private void ListZWM_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            zamowieniaTableAdapter.Adapter.Fill(this.zWMDataSet);
+        }
     }
 }
