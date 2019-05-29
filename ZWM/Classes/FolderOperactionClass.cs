@@ -27,7 +27,7 @@ namespace ZWM.Classes
         #region methods
         public bool IsBaseFolderZWMExist()
         {
-            if (File.Exists(Path.Combine(desktopPatch, baseFolderName)))
+            if (Directory.Exists(Path.Combine(desktopPatch, baseFolderName)))
                 return true;
             return false;
         }

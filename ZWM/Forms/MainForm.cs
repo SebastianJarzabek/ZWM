@@ -54,13 +54,17 @@ namespace ZWM.Forms
             FolderOperactionClass folderOperaction = new FolderOperactionClass();
 
             if (folderOperaction.IsBaseFolderZWMExist())
-                return;
+            {
+                ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
+                excelClass.OpenExcelFile();
+                ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
+            }
+
             else folderOperaction.IfBaseFolderDontExistExtractIt();
 
-            
-            ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
-            excelClass.OpenExcelFile();
-            ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
+
+
+
 
         }
 

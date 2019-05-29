@@ -21,7 +21,7 @@ namespace ZWM.Classes
         public ExcelClass(string startPath)
         {
             this.startPath = startPath;
-            
+
         }
 
 
@@ -60,14 +60,14 @@ namespace ZWM.Classes
                     zwmInstance.kilometerProperty = connectedContractAndKilometer.Substring(connectedContractAndKilometer.Trim().IndexOf(" ") + 1);
                     zwmInstance.plannedDateOfReceiptProperty = arkusz.Cells[8, 7].Value.ToString();
 
-                    string[,] tab = new string[10, 6];
-                    tab = arkusz.get_Range("B14", "G23").Value;
+                    zwmInstance.tabProperty = arkusz.get_Range("B14", "G23").Value;
 
                     zwmInstance.attentionProperty = arkusz.Cells[27, 3].Value.ToString();
-                    
+
+
                 }
             }
-            
+
         }
         public void StringGetDataFromDoc()
         {
