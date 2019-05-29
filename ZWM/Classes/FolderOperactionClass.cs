@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO.Compression;
 
 namespace ZWM.Classes
 {
@@ -13,8 +8,9 @@ namespace ZWM.Classes
     {
         #region Zwm_Instance_variables
         private string baseFolderName = "ZWM-pliki";
+        private string zipFolder = "ZWM-pliki.zip";
         private string desktopPatch = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        
+
         private string CurrentDirectory = Directory.GetCurrentDirectory();
         #endregion Zwm_Instance_variables
         #region Zwm_Instance_variables_Property
@@ -36,11 +32,9 @@ namespace ZWM.Classes
             return false;
         }
 
-        public void IfBaseFolderDontExistCopyIt()
+        public void IfBaseFolderDontExistExtractIt()
         {
-            //Przeniesie plik, a nie skopiuje -----Do poprawki
-            Directory.Move(Path.Combine(CurrentDirectory, baseFolderName), Path.Combine(desktopPatch, baseFolderName));
-            
+            ZipFile.ExtractToDirectory(Path.Combine(CurrentDirectory, zipFolder), desktopPatch);
         }
         #endregion
     }

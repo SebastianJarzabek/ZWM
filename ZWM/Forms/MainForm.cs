@@ -40,6 +40,7 @@ namespace ZWM.Forms
             //Otwarcie nowego okna, usunięcie obecnego.
             using (var okno = new ManualAdditionZWMForm())
             {
+
                 this.Visible = false;
                 okno.ShowInTaskbar = false;
                 okno.ShowDialog();
@@ -50,15 +51,16 @@ namespace ZWM.Forms
         private void AddExcelFileZWM_btn_Click(object sender, EventArgs e)
         {
             MainClass nowy = new MainClass();
-            FolderOperactionClass folderOperaction = new FolderOperactionClass(); 
+            FolderOperactionClass folderOperaction = new FolderOperactionClass();
 
-            
             if (folderOperaction.IsBaseFolderZWMExist())
                 return;
-            else folderOperaction.IfBaseFolderDontExistCopyIt();
+            else folderOperaction.IfBaseFolderDontExistExtractIt();
 
-            nowy.AddPatchToZWMFile();
-
+            
+            ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
+            excelClass.OpenExcelFile();
+            ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
 
         }
 
