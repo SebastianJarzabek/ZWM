@@ -52,12 +52,17 @@ namespace ZWM.Forms
         {
             MainClass nowy = new MainClass();
             FolderOperactionClass folderOperaction = new FolderOperactionClass();
+            
 
             if (folderOperaction.IsBaseFolderZWMExist())
             {
                 ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
-                excelClass.OpenExcelFile();
                 ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
+                zwmInstanceClass = excelClass.OpenExcelFile();
+                FilleOperationClass filleOperation = new FilleOperationClass(zwmInstanceClass.orderIdProperty,zwmInstanceClass.contractNumberProperty,zwmInstanceClass.kilometerProperty,zwmInstanceClass.plannedDateOfReceiptProperty);
+                filleOperation.CopyAndRenameZWMFile();
+                filleOperation.CreateWZFile();
+
             }
 
             else folderOperaction.IfBaseFolderDontExistExtractIt();
