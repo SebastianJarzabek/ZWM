@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DbClass.cs" />
     <Compile Include="Classes\ExcelClass.cs" />
     <Compile Include="Classes\FilleOperationClass.cs" />
     <Compile Include="Classes\FolderOperactionClass.cs" />
@@ -102,6 +103,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ZWMDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <EmbeddedResource Include="Forms\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
@@ -135,14 +137,17 @@
     </Compile>
     <None Include="ZWMDataSet.xsc">
       <DependentUpon>ZWMDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="ZWMDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ZWMDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="ZWMDataSet.xss">
       <DependentUpon>ZWMDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

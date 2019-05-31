@@ -22,7 +22,7 @@ namespace ZWM.Classes
         private DateTime plannedDateOfReceipt;
         private string attention;
         private DateTime dateOfReceipt;
-        private string[,] tab;
+        private object[,] tab;
 
         #endregion Zwm_Instance_variables
 
@@ -88,7 +88,7 @@ namespace ZWM.Classes
             get { return dateOfReceipt; }
             set { dateOfReceipt = value; }
         }
-        public string[,] tabProperty
+        public object[,] tabProperty
         {
             get { return tab; }
             set { tab = value; }

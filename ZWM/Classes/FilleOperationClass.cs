@@ -99,7 +99,7 @@ namespace ZWM.Classes
         public void CopyAndRenameZWMFile()
         {
             string documentType = "ZWM";
-
+            //orderId dostaje pustą wartość - brak bazy
             System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
         }
 

@@ -58,7 +58,7 @@ namespace ZWM.Forms
             {
                 ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
                 ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
-                zwmInstanceClass = excelClass.OpenExcelFile();
+               // zwmInstanceClass = excelClass.OpenExcelFile();
                 FilleOperationClass filleOperation = new FilleOperationClass(zwmInstanceClass.orderIdProperty,zwmInstanceClass.contractNumberProperty,zwmInstanceClass.kilometerProperty,zwmInstanceClass.plannedDateOfReceiptProperty);
                 filleOperation.CopyAndRenameZWMFile();
                 filleOperation.CreateWZFile();

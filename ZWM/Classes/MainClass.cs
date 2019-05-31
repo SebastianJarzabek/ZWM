@@ -24,9 +24,12 @@ namespace ZWM.Classes
             if (openExcelFile.ShowDialog() == DialogResult.OK)
             {
                 FileZWMToAddPatchProperty = openExcelFile.FileName;
+                return fileZWMToAddPatch;
             }
 
-            return fileZWMToAddPatch;
+            return null;
+
+            
         }
     }
 }
