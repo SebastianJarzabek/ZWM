@@ -94,5 +94,10 @@ namespace ZWM.Forms
         {
             this.Close();
         }
+
+        private void AddUserForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

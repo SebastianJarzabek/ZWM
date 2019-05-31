@@ -76,5 +76,10 @@ namespace ZWM.Forms
         {
             Application.Exit();
         }
+
+        private void LogInForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

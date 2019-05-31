@@ -108,7 +108,7 @@ namespace ZWM.Classes
             sqlCommand.CommandText = myQuery;
             finished = 0;
             int? isDone;
-           
+
 
             isDone = sqlCommand.ExecuteNonQuery();
 

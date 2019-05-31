@@ -78,11 +78,11 @@ namespace ZWM.Classes
 
         public FilleOperationClass(int orderId, string contractNumber, string kilometer, DateTime plannedDateOfReceipt)
         {
-            this.orderId=orderId;
-            this.contractNumber=contractNumber;
-            this.kilometer=kilometer;
-            this.plannedDateOfReceipt=plannedDateOfReceipt;
-    }
+            this.orderId = orderId;
+            this.contractNumber = contractNumber;
+            this.kilometer = kilometer;
+            this.plannedDateOfReceipt = plannedDateOfReceipt;
+        }
 
         #endregion constructor
 
@@ -91,7 +91,7 @@ namespace ZWM.Classes
         public string Filename(string documentType, int orderId, string contractNumber, string kilometer, DateTime plannedDateOfReceipt)
         {
             StringBuilder StringBuildernewfilename = new StringBuilder();
-            StringBuildernewfilename.Append(documentType).Append(orderId).Append(contractNumber).Append(kilometer).Append(Convert.ToString(plannedDateOfReceipt));
+            StringBuildernewfilename.Append(documentType).Append("_").Append(orderId).Append("_").Append(contractNumber).Append("_").Append(kilometer).Append("_").Append(plannedDateOfReceipt.ToString("dd-MM-yyyy"));
 
             return Convert.ToString(StringBuildernewfilename);
         }
@@ -107,19 +107,19 @@ namespace ZWM.Classes
 
             string documentType = "ZWM";
             //ExcelClass excelClass = new ExcelClass();
-           // ec
+            // ec
 
             //orderId dostaje pustą wartość - brak bazy
-          System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
+            System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
         }
 
         public string CreateWZFile()
         {
             string documentType = "WZ";
 
-     //       System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
+            //       System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
             return newWZFileName;
-        }//Nie skonczone brak pliku do zapisu, jedynie nadaje nazwe
+        }//Nie skonczone brak pliku do zapisu
 
 
 

@@ -65,13 +65,13 @@ namespace ZWM.Forms
             //    ZWMRow.plannedDateOfReceiptProperty = DateOfReceipt_dtp.Value;
             //}
             ZwmInstanceClass zwm = new ZwmInstanceClass();
-            zwm.nameProperty=Name_cb.Text;
+            zwm.nameProperty = Name_cb.Text;
             zwm.surnameProperty = Surname_cb.Text;
             zwm.contractNumberProperty = ContractNumber_cb.Text;
             zwm.kilometerProperty = Kilometer_cb.Text;
             zwm.plannedDateOfReceiptProperty = DateOfReceipt_dtp.Value;
-            
-           // foreach (whatRow in )
+
+            // foreach (whatRow in )
         }
 
         private void BackToTheFirstForm_btn_Click(object sender, EventArgs e)

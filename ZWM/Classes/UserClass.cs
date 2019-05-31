@@ -40,12 +40,12 @@ namespace ZWM.Classes
             set { password = value; }
         }
 
-        public UserClass(string login,string password)
+        public UserClass(string login, string password)
         {
             this.login = login;
             this.password = password;
         }
-        
+
         public UserClass(string name, string surname, string login, string password)
         {
             this.name = name;
