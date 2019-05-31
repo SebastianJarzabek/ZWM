@@ -24,24 +24,12 @@ namespace ZWM.Classes
             if (openExcelFile.ShowDialog() == DialogResult.OK)
             {
                 FileZWMToAddPatchProperty = openExcelFile.FileName;
+                return fileZWMToAddPatch;
             }
 
-            return fileZWMToAddPatch;
+            return null;
+
+            
         }
-
-        
-        //public void OpenForm()
-        //{
-
-        //    //Otwarcie nowego okna, usunięcie obecnego.
-        //    using (var okno = new Form())
-        //    {
-        //        this.Visible = false;
-        //        okno.ShowInTaskbar = false;
-        //        okno.ShowDialog();
-        //        this.Visible = true;
-        //    }
-
-        //}
     }
 }

@@ -76,10 +76,13 @@ namespace ZWM.Classes
 
         #region constructor
 
-        public FilleOperationClass()
+        public FilleOperationClass(int orderId, string contractNumber, string kilometer, DateTime plannedDateOfReceipt)
         {
-
-        }
+            this.orderId=orderId;
+            this.contractNumber=contractNumber;
+            this.kilometer=kilometer;
+            this.plannedDateOfReceipt=plannedDateOfReceipt;
+    }
 
         #endregion constructor
 
@@ -96,7 +99,7 @@ namespace ZWM.Classes
         public void CopyAndRenameZWMFile()
         {
             string documentType = "ZWM";
-
+            //orderId dostaje pustą wartość - brak bazy
             System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
         }
 

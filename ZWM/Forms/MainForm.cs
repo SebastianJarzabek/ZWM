@@ -40,6 +40,7 @@ namespace ZWM.Forms
             //Otwarcie nowego okna, usunięcie obecnego.
             using (var okno = new ManualAdditionZWMForm())
             {
+
                 this.Visible = false;
                 okno.ShowInTaskbar = false;
                 okno.ShowDialog();
@@ -50,14 +51,24 @@ namespace ZWM.Forms
         private void AddExcelFileZWM_btn_Click(object sender, EventArgs e)
         {
             MainClass nowy = new MainClass();
-            FolderOperactionClass folderOperaction = new FolderOperactionClass(); 
-
+            FolderOperactionClass folderOperaction = new FolderOperactionClass();
             
-            if (folderOperaction.IsBaseFolderZWMExist())
-                return;
-            else folderOperaction.IfBaseFolderDontExistCopyIt();
 
-            nowy.AddPatchToZWMFile();
+            if (folderOperaction.IsBaseFolderZWMExist())
+            {
+                ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
+                ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
+               // zwmInstanceClass = excelClass.OpenExcelFile();
+                FilleOperationClass filleOperation = new FilleOperationClass(zwmInstanceClass.orderIdProperty,zwmInstanceClass.contractNumberProperty,zwmInstanceClass.kilometerProperty,zwmInstanceClass.plannedDateOfReceiptProperty);
+                filleOperation.CopyAndRenameZWMFile();
+                filleOperation.CreateWZFile();
+
+            }
+
+            else folderOperaction.IfBaseFolderDontExistExtractIt();
+
+
+
 
 
         }
@@ -65,6 +76,11 @@ namespace ZWM.Forms
         private void PrintLastAddedDocumentsZWMandWZ_btn_Click(object sender, EventArgs e)
         {
             //Drukowanie zwm i wz (ostatnio dodanego)
+        }
+
+        private void ListZWM_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            zamowieniaTableAdapter.Adapter.Fill(this.zWMDataSet);
         }
     }
 }

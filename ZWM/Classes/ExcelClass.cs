@@ -10,11 +10,27 @@ namespace ZWM.Classes
     class ExcelClass
     {
         public int MyProperty { get; set; }
+        private string startPath;
 
-        public void OpenExcelFile()
+        public string StartPathProperty
+        {
+            get { return startPath; }
+            set { startPath = value; }
+        }
+
+        public ExcelClass(string startPath)
+        {
+            this.startPath = startPath;
+
+        }
+
+
+        public ZwmInstanceClass OpenExcelFile()
         {
             MainClass main = new MainClass();
             string startpath = main.AddPatchToZWMFile();
+            ZWM.Classes.ZwmInstanceClass zwmInstance = new ZwmInstanceClass();
+
 
             if (startpath != null)
             {
@@ -35,23 +51,34 @@ namespace ZWM.Classes
                     string connectedNameAndSurname = (arkusz.Cells[4, 5].Value.ToString());
                     string connectedContractAndKilometer = arkusz.Cells[6, 5].Value.ToString();
 
-                    ZWM.Classes.ZwmInstanceClass zwmInstance = new ZwmInstanceClass();
+
                     //oddczytanie wartosci 
                     zwmInstance.nameProperty = connectedNameAndSurname.Substring(0, connectedNameAndSurname.Trim().IndexOf(" "));
-                    zwmInstance.surnameProperty = connectedNameAndSurname.Substring(connectedNameAndSurname.Trim().IndexOf(" ")+1);
+                    zwmInstance.surnameProperty = connectedNameAndSurname.Substring(connectedNameAndSurname.Trim().IndexOf(" ") + 1);
 
-                    zwmInstance.contractNumberProperty = connectedContractAndKilometer.Substring(0, connectedContractAndKilometer.Trim().IndexOf(" "));
-                    zwmInstance.kilometerProperty = connectedContractAndKilometer.Substring(connectedContractAndKilometer.Trim().IndexOf(" ") + 1);
-                    zwmInstance.plannedDateOfReceiptProperty= arkusz.Cells[8, 7].Value.ToString();
+                    if (connectedContractAndKilometer.Length > 4)
+                    {
+                        connectedContractAndKilometer.Substring(connectedContractAndKilometer.Trim().IndexOf(" ") + 1);
+                        zwmInstance.contractNumberProperty = connectedContractAndKilometer.Substring(connectedContractAndKilometer.Trim().IndexOf(" ") + 1);
+                    }
 
-                    string[,] tab = new string[10, 6];
-                    tab= arkusz.get_Range("B14", "G23").Value;
+                    else zwmInstance.contractNumberProperty = connectedContractAndKilometer;
+
+                    //zwmInstance.contractNumberProperty = connectedContractAndKilometer.Substring(0, connectedContractAndKilometer.Trim().IndexOf(" "));
+                    if (connectedContractAndKilometer.Substring(connectedContractAndKilometer.Trim().IndexOf(" ") + 1) == null)
+                        zwmInstance.kilometerProperty = connectedContractAndKilometer.Substring(connectedContractAndKilometer.Trim().IndexOf(" ") + 1);
+                    else zwmInstance.kilometerProperty = "";
+
+                    zwmInstance.plannedDateOfReceiptProperty = Convert.ToDateTime(arkusz.Cells[8, 7].Value.ToString());
+
+                    zwmInstance.tabProperty = arkusz.get_Range("B14", "G23").Value;
 
                     zwmInstance.attentionProperty = arkusz.Cells[27, 3].Value.ToString();
 
+
                 }
             }
-
+            return zwmInstance;
         }
         public void StringGetDataFromDoc()
         {

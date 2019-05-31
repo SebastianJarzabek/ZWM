@@ -22,6 +22,7 @@ namespace ZWM.Classes
         private DateTime plannedDateOfReceipt;
         private string attention;
         private DateTime dateOfReceipt;
+        private object[,] tab;
 
         #endregion Zwm_Instance_variables
 
@@ -87,6 +88,11 @@ namespace ZWM.Classes
             get { return dateOfReceipt; }
             set { dateOfReceipt = value; }
         }
+        public object[,] tabProperty
+        {
+            get { return tab; }
+            set { tab = value; }
+        }
 
         #endregion
 
@@ -96,7 +102,7 @@ namespace ZWM.Classes
 
         }
 
-        public ZwmInstanceClass(int orderIdProperty, string nameProperty, string surnameProperty, string contractNumberProperty, string kilometerProperty, string materialNameProperty, string materialTypeProperty, string nameOfTheMaterialUnitProperty, int quantityProperty, DateTime plannedDateOfReceiptProperty, string attentionProperty, DateTime dateOfReceiptProperty)
+        public ZwmInstanceClass(int orderIdProperty, string nameProperty, string surnameProperty, string contractNumberProperty, string kilometerProperty, string materialNameProperty, string materialTypeProperty, string nameOfTheMaterialUnitProperty, int quantityProperty, DateTime plannedDateOfReceiptProperty, string attentionProperty, DateTime dateOfReceiptProperty, string[,] tab)
         {
             this.orderIdProperty = orderIdProperty;
             this.nameProperty = nameProperty;
@@ -110,6 +116,7 @@ namespace ZWM.Classes
             this.plannedDateOfReceiptProperty = plannedDateOfReceiptProperty;
             this.attentionProperty = attentionProperty;
             this.dateOfReceiptProperty = dateOfReceiptProperty;
+            this.tab = tab;
         }
 
         #endregion constructor

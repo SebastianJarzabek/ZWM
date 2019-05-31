@@ -118,7 +118,16 @@ SELECT idKierownika, imie, nazwisko, login, haslo FROM Kierownicy WHERE (idKiero
               <Mapping SourceColumn="login" DataSetColumn="login" />
               <Mapping SourceColumn="haslo" DataSetColumn="haslo" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ZWMConnectionString (Settings)" DbObjectName="ZWM.dbo.Kierownicy" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT idKierownika, imie, nazwisko, login, haslo FROM dbo.Kierownicy</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KontraktyTableAdapter" GeneratorDataComponentClassName="KontraktyTableAdapter" Name="Kontrakty" UserDataComponentName="KontraktyTableAdapter">
             <MainSource>
