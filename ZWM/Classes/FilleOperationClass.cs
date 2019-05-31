@@ -98,16 +98,26 @@ namespace ZWM.Classes
 
         public void CopyAndRenameZWMFile()
         {
+            int lastOrderId = 0;
+            string myQuery = $"select max(idZamowienia) from Zamowienia";
+            DbClass dbClass = new DbClass();
+            dbClass.ConnectionToDataBaseZwmnAndFindLastId(myQuery: myQuery, whatToDo: 1, finished: out lastOrderId);
+
+            orderId = lastOrderId + 1;
+
             string documentType = "ZWM";
+            //ExcelClass excelClass = new ExcelClass();
+           // ec
+
             //orderId dostaje pustą wartość - brak bazy
-            System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
+          System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
         }
 
         public string CreateWZFile()
         {
             string documentType = "WZ";
 
-            System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
+     //       System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
             return newWZFileName;
         }//Nie skonczone brak pliku do zapisu, jedynie nadaje nazwe
 

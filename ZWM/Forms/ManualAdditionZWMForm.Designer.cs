@@ -34,17 +34,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DateOfReceipt_dtp = new System.Windows.Forms.DateTimePicker();
             this.Kilometer_cb = new System.Windows.Forms.ComboBox();
+            this.kontraktyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.zWMDataSet = new ZWM.ZWMDataSet();
             this.label4 = new System.Windows.Forms.Label();
             this.ContractNumber_cb = new System.Windows.Forms.ComboBox();
+            this.kontraktyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.Name_cb = new System.Windows.Forms.ComboBox();
             this.kierownicyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.zWMDataSet = new ZWM.ZWMDataSet();
             this.Surname_cb = new System.Windows.Forms.ComboBox();
             this.kierownicyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Materials_dgv = new System.Windows.Forms.DataGridView();
+            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zadysponowana = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jednostka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Comments_tb = new System.Windows.Forms.TextBox();
@@ -54,25 +61,18 @@
             this.zamowieniaTableAdapter = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
             this.zamowieniaTableAdapter1 = new ZWM.ZWMDataSetTableAdapters.ZamowieniaTableAdapter();
             this.kierownicyTableAdapter = new ZWM.ZWMDataSetTableAdapters.KierownicyTableAdapter();
-            this.kontraktyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kontraktyTableAdapter = new ZWM.ZWMDataSetTableAdapters.KontraktyTableAdapter();
-            this.kontraktyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zadysponowana = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jednostka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Materials_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zamowieniaBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -135,6 +135,16 @@
             this.Kilometer_cb.TabIndex = 3;
             this.Kilometer_cb.ValueMember = "kilometr";
             // 
+            // kontraktyBindingSource1
+            // 
+            this.kontraktyBindingSource1.DataMember = "Kontrakty";
+            this.kontraktyBindingSource1.DataSource = this.zWMDataSet;
+            // 
+            // zWMDataSet
+            // 
+            this.zWMDataSet.DataSetName = "ZWMDataSet";
+            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -155,6 +165,11 @@
             this.ContractNumber_cb.Size = new System.Drawing.Size(200, 24);
             this.ContractNumber_cb.TabIndex = 2;
             this.ContractNumber_cb.ValueMember = "numerKontraktu";
+            // 
+            // kontraktyBindingSource
+            // 
+            this.kontraktyBindingSource.DataMember = "Kontrakty";
+            this.kontraktyBindingSource.DataSource = this.zWMDataSet;
             // 
             // label3
             // 
@@ -182,11 +197,6 @@
             this.kierownicyBindingSource.DataMember = "Kierownicy";
             this.kierownicyBindingSource.DataSource = this.zWMDataSet;
             // 
-            // zWMDataSet
-            // 
-            this.zWMDataSet.DataSetName = "ZWMDataSet";
-            this.zWMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // Surname_cb
             // 
             this.Surname_cb.DataSource = this.kierownicyBindingSource1;
@@ -212,6 +222,15 @@
             this.label2.Size = new System.Drawing.Size(86, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nazwisko:";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 18);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(640, 102);
+            this.flowLayoutPanel2.TabIndex = 10;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // groupBox2
             // 
@@ -240,6 +259,26 @@
             this.Materials_dgv.Size = new System.Drawing.Size(631, 336);
             this.Materials_dgv.TabIndex = 0;
             this.Materials_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Materials_dgv_CellContentClick);
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            // 
+            // Typ
+            // 
+            this.Typ.HeaderText = "Typ";
+            this.Typ.Name = "Typ";
+            // 
+            // Zadysponowana
+            // 
+            this.Zadysponowana.HeaderText = "Ilość";
+            this.Zadysponowana.Name = "Zadysponowana";
+            // 
+            // Jednostka
+            // 
+            this.Jednostka.HeaderText = "Jednostka";
+            this.Jednostka.Name = "Jednostka";
             // 
             // zamowieniaBindingSource
             // 
@@ -275,6 +314,7 @@
             this.BackToTheFirstForm_btn.TabIndex = 0;
             this.BackToTheFirstForm_btn.Text = "Cofnij";
             this.BackToTheFirstForm_btn.UseVisualStyleBackColor = true;
+            this.BackToTheFirstForm_btn.Click += new System.EventHandler(this.BackToTheFirstForm_btn_Click);
             // 
             // ManualAdditionZWM_btn
             // 
@@ -296,6 +336,7 @@
             this.ClouseProgram_btn.TabIndex = 2;
             this.ClouseProgram_btn.Text = "Zamknij";
             this.ClouseProgram_btn.UseVisualStyleBackColor = true;
+            this.ClouseProgram_btn.Click += new System.EventHandler(this.ClouseProgram_btn_Click);
             // 
             // zamowieniaTableAdapter
             // 
@@ -309,19 +350,9 @@
             // 
             this.kierownicyTableAdapter.ClearBeforeFill = true;
             // 
-            // kontraktyBindingSource
-            // 
-            this.kontraktyBindingSource.DataMember = "Kontrakty";
-            this.kontraktyBindingSource.DataSource = this.zWMDataSet;
-            // 
             // kontraktyTableAdapter
             // 
             this.kontraktyTableAdapter.ClearBeforeFill = true;
-            // 
-            // kontraktyBindingSource1
-            // 
-            this.kontraktyBindingSource1.DataMember = "Kontrakty";
-            this.kontraktyBindingSource1.DataSource = this.zWMDataSet;
             // 
             // flowLayoutPanel1
             // 
@@ -330,35 +361,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 687);
             this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 18);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(640, 102);
-            this.flowLayoutPanel2.TabIndex = 10;
-            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
-            // 
-            // Nazwa
-            // 
-            this.Nazwa.HeaderText = "Nazwa";
-            this.Nazwa.Name = "Nazwa";
-            // 
-            // Typ
-            // 
-            this.Typ.HeaderText = "Typ";
-            this.Typ.Name = "Typ";
-            // 
-            // Zadysponowana
-            // 
-            this.Zadysponowana.HeaderText = "Ilość";
-            this.Zadysponowana.Name = "Zadysponowana";
-            // 
-            // Jednostka
-            // 
-            this.Jednostka.HeaderText = "Jednostka";
-            this.Jednostka.Name = "Jednostka";
             // 
             // ManualAdditionZWMForm
             // 
@@ -377,16 +379,16 @@
             this.Load += new System.EventHandler(this.ManualAdditionZWM_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kierownicyBindingSource1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Materials_dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zamowieniaBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
