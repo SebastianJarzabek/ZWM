@@ -73,5 +73,15 @@ namespace ZWM.Forms
             
            // foreach (whatRow in )
         }
+
+        private void BackToTheFirstForm_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClouseProgram_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

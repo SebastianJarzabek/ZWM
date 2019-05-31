@@ -45,6 +45,8 @@ namespace ZWM.Classes
                     arkusz = shit;
                     break;
                 }
+
+
                 // jesli arkusz nie jest null
                 if (arkusz != null)
                 {
@@ -73,11 +75,17 @@ namespace ZWM.Classes
 
                     zwmInstance.tabProperty = arkusz.get_Range("B14", "G23").Value;
 
-                    zwmInstance.attentionProperty = arkusz.Cells[27, 3].Value.ToString();
+                    //zwmInstance.attentionProperty = arkusz.Cells[27, 3].Value.ToString();
 
 
                 }
             }
+
+
+
+
+
+
             return zwmInstance;
         }
         public void StringGetDataFromDoc()

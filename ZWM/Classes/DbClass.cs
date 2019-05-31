@@ -45,6 +45,7 @@ namespace ZWM.Classes
                         MySqlAddUserMethod(sqlConnection, myQuery, out finished);
                         break;
                     case 3:
+
                         break;
                     case 4:
                         break;
@@ -52,9 +53,6 @@ namespace ZWM.Classes
                     default:
                         break;
                 }
-
-
-
 
             }
             catch (System.Data.SqlClient.SqlException se)
@@ -71,6 +69,57 @@ namespace ZWM.Classes
             }
         }
 
+        public void ConnectionToDataBaseZwmnAndFindLastId(string myQuery, int whatToDo, out int finished)
+        {
+            finished = 0;
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = conectionStringToBaseZwm;
+
+            SqlCommand sqlCommand = new SqlCommand();
+
+            try
+            {
+                sqlConnection.Open();
+                FindLastOrderID(sqlConnection, myQuery, out finished);
+
+            }
+            catch (System.Data.SqlClient.SqlException se)
+            {
+                throw se;
+            }
+            finally
+            {
+                if (sqlConnection.State == ConnectionState.Open)
+                {
+                    sqlConnection.Close();
+                }
+
+            }
+        }
+
+
+        private int FindLastOrderID(SqlConnection sqlConnection, string myQuery, out int finished)
+        {
+            finished = 0;
+
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = myQuery;
+            finished = 0;
+            int? isDone;
+           
+
+            isDone = sqlCommand.ExecuteNonQuery();
+
+            if (isDone != null)
+            {
+                finished = (int)isDone;
+            }
+
+            return finished;
+        }
+
         private bool MySqlAddUserMethod(SqlConnection sqlConnection, string myQuery, out bool finished)
         {
             finished = false;
@@ -81,19 +130,18 @@ namespace ZWM.Classes
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = myQuery;
 
-            isDone=sqlCommand.ExecuteNonQuery();
+            isDone = sqlCommand.ExecuteNonQuery();
 
             if (isDone != 0)
             {
                 finished = true;
             }
-            
+
             return finished;
         }
 
         private bool MySqlLoginMethod(SqlConnection sqlConnection, string myQuery, out bool finished)
         {
-            // int isDone = 0;
             finished = false;
 
 
