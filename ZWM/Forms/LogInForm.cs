@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZWM.Classes;
 
 namespace ZWM.Forms
 {
@@ -30,25 +31,38 @@ namespace ZWM.Forms
 
         private void LogIn_btn_Click(object sender, EventArgs e)
         {
+            bool isEntryOk = false;
             //TODO Pobierz dane, Sprawdz czy sa zgodne z danymi z baza
             if (!String.IsNullOrWhiteSpace(login_tb.Text) && !String.IsNullOrWhiteSpace(Password_tb.Text))
             {
-
-
-                using (var okno = new MainForm())
+                string myQuery = $"Select idKierownika From Kierownicy Where login='{login_tb.Text}' and haslo= '{Password_tb.Text}'";
+                DbClass dbClass = new DbClass();
+                dbClass.ConnectionToDataBaseZwm(myQuery: myQuery, whatToDo: 1, finished: out isEntryOk);
+                if (isEntryOk)
                 {
-                    this.Visible = false;
-                    okno.ShowInTaskbar = false;
-                    okno.ShowDialog();
-                    this.Visible = true;
+                    using (var okno = new MainForm())
+                    {
+                        this.Visible = false;
+                        okno.ShowInTaskbar = false;
+                        okno.ShowDialog();
+                        this.Visible = true;
+                    }
+                    login_tb.Text = "";
+                    Password_tb.Text = "";
+                    label3.Text = "";
+
                 }
+                else
+                {
+                    MessageBox.Show("Wprowadzone dane są niepoprawne!");
+                    login_tb.Text = "";
+                    Password_tb.Text = "";
+                }
+
             }
             else
             {
-                MessageBox.Show("Wprowadzone dane są niepoprawne!");
-                login_tb.Text = "";
-                Password_tb.Text = "";
-                label3.Text = "Wprowadź poprawne dane logowania.";
+                label3.Text = "Wprowadź poprawnie dane logowania.";
             }
         }
 
