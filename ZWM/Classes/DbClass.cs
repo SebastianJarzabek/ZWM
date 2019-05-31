@@ -42,6 +42,7 @@ namespace ZWM.Classes
 
                         break;
                     case 2:
+                        MySqlAddUserMethod(sqlConnection, myQuery, out finished);
                         break;
                     case 3:
                         break;
@@ -68,6 +69,26 @@ namespace ZWM.Classes
                 }
 
             }
+        }
+
+        private bool MySqlAddUserMethod(SqlConnection sqlConnection, string myQuery, out bool finished)
+        {
+            finished = false;
+            int isDone = 0;
+
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandText = myQuery;
+
+            isDone=sqlCommand.ExecuteNonQuery();
+
+            if (isDone != 0)
+            {
+                finished = true;
+            }
+            
+            return finished;
         }
 
         private bool MySqlLoginMethod(SqlConnection sqlConnection, string myQuery, out bool finished)
