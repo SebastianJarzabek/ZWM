@@ -82,6 +82,7 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -509,7 +510,7 @@
             // 
             // CloseProgram_btn
             // 
-            this.CloseProgram_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CloseProgram_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CloseProgram_btn.Location = new System.Drawing.Point(3, 383);
             this.CloseProgram_btn.Name = "CloseProgram_btn";
             this.CloseProgram_btn.Size = new System.Drawing.Size(100, 25);
@@ -629,5 +630,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TerminOdbioru;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }

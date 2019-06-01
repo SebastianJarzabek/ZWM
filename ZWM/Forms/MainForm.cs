@@ -59,7 +59,8 @@ namespace ZWM.Forms
                 ExcelClass excelClass = new ExcelClass(nowy.AddPatchToZWMFile().ToString());
                 ZwmInstanceClass zwmInstanceClass = new ZwmInstanceClass();
                 zwmInstanceClass = excelClass.OpenExcelFile();
-                FilleOperationClass filleOperation = new FilleOperationClass(zwmInstanceClass.orderIdProperty, zwmInstanceClass.contractNumberProperty, zwmInstanceClass.kilometerProperty, zwmInstanceClass.plannedDateOfReceiptProperty);
+                FilleOperationClass filleOperation = new FilleOperationClass(zwmInstanceClass.pathProperty,zwmInstanceClass.orderIdProperty, zwmInstanceClass.contractNumberProperty, zwmInstanceClass.kilometerProperty, zwmInstanceClass.plannedDateOfReceiptProperty);
+               
                 filleOperation.CopyAndRenameZWMFile();
                 filleOperation.CreateWZFile();
 
@@ -75,7 +76,7 @@ namespace ZWM.Forms
 
         private void PrintLastAddedDocumentsZWMandWZ_btn_Click(object sender, EventArgs e)
         {
-            //Drukowanie zwm i wz (ostatnio dodanego)
+            
         }
 
         private void ListZWM_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)

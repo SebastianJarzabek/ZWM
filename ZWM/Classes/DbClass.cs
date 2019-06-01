@@ -36,20 +36,11 @@ namespace ZWM.Classes
                 switch (whatToDo)
                 {
                     case 1:
-
                         MySqlLoginMethod(sqlConnection, myQuery, out finished);
-
-
                         break;
                     case 2:
                         MySqlAddUserMethod(sqlConnection, myQuery, out finished);
                         break;
-                    case 3:
-
-                        break;
-                    case 4:
-                        break;
-
                     default:
                         break;
                 }
@@ -106,7 +97,7 @@ namespace ZWM.Classes
 
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = myQuery;
-            finished = 0;
+
             int? isDone;
 
 

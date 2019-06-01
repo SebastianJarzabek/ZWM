@@ -76,12 +76,19 @@ namespace ZWM.Forms
 
         private void BackToTheFirstForm_btn_Click(object sender, EventArgs e)
         {
+            using (var okno = new MainForm())
+            {
 
+                this.Visible = false;
+                okno.ShowInTaskbar = false;
+                okno.ShowDialog();
+                this.Visible = true;
+            }
         }
 
         private void ClouseProgram_btn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

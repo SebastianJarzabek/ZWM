@@ -77,15 +77,9 @@ namespace ZWM.Classes
 
                     //zwmInstance.attentionProperty = arkusz.Cells[27, 3].Value.ToString();
 
-
+                    zwmInstance.pathProperty= startpath;
                 }
             }
-
-
-
-
-
-
             return zwmInstance;
         }
         public void StringGetDataFromDoc()

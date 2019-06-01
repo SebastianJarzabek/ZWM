@@ -10,7 +10,7 @@ namespace ZWM.Classes
     class FilleOperationClass
     {
         #region Zwm_Instance_variables
-        private string fileZWMToAddPatch = @"";
+        private string fileZWMToAddPatch;
         private string archivesFolderPatch = @"Environment.GetFolderPath(Environment.SpecialFolder.Desktop)";
         private string zwmfolderPatch = @"ZWM-pliki\Archiwum\ZWM";
         private string wzFolderPatch = @"ZWM-pliki\Archiwum\WZ";
@@ -76,8 +76,9 @@ namespace ZWM.Classes
 
         #region constructor
 
-        public FilleOperationClass(int orderId, string contractNumber, string kilometer, DateTime plannedDateOfReceipt)
+        public FilleOperationClass( string sorce ,int orderId, string contractNumber, string kilometer, DateTime plannedDateOfReceipt)
         {
+            this.fileZWMToAddPatch = sorce;
             this.orderId = orderId;
             this.contractNumber = contractNumber;
             this.kilometer = kilometer;
@@ -106,10 +107,7 @@ namespace ZWM.Classes
             orderId = lastOrderId + 1;
 
             string documentType = "ZWM";
-            //ExcelClass excelClass = new ExcelClass();
-            // ec
-
-            //orderId dostaje pustą wartość - brak bazy
+            
             System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
         }
 

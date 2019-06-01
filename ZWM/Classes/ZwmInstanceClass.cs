@@ -9,7 +9,7 @@ namespace ZWM.Classes
     class ZwmInstanceClass
     {
         #region Zwm_Instance_variables
-
+        private string path;
         private int orderId;
         private string name;
         private string surname;
@@ -28,6 +28,11 @@ namespace ZWM.Classes
 
         #region Zwm_Instance_variables_Property
 
+        public string pathProperty
+        {
+            get { return path; }
+            set { path = value; }
+        }
         public int orderIdProperty
         {
             get { return orderId; }
@@ -104,6 +109,7 @@ namespace ZWM.Classes
 
         public ZwmInstanceClass(int orderIdProperty, string nameProperty, string surnameProperty, string contractNumberProperty, string kilometerProperty, string materialNameProperty, string materialTypeProperty, string nameOfTheMaterialUnitProperty, int quantityProperty, DateTime plannedDateOfReceiptProperty, string attentionProperty, DateTime dateOfReceiptProperty, string[,] tab)
         {
+            this.path = pathProperty;
             this.orderIdProperty = orderIdProperty;
             this.nameProperty = nameProperty;
             this.surnameProperty = surnameProperty;
