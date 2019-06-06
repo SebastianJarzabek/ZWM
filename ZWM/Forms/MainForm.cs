@@ -67,11 +67,6 @@ namespace ZWM.Forms
             }
 
             else folderOperaction.IfBaseFolderDontExistExtractIt();
-
-
-
-
-
         }
 
         private void PrintLastAddedDocumentsZWMandWZ_btn_Click(object sender, EventArgs e)

@@ -48,10 +48,6 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Materials_dgv = new System.Windows.Forms.DataGridView();
-            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Zadysponowana = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jednostka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zamowieniaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Comments_tb = new System.Windows.Forms.TextBox();
@@ -63,6 +59,10 @@
             this.kierownicyTableAdapter = new ZWM.ZWMDataSetTableAdapters.KierownicyTableAdapter();
             this.kontraktyTableAdapter = new ZWM.ZWMDataSetTableAdapters.KontraktyTableAdapter();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Nazwa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Zadysponowana = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jednostka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kontraktyBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zWMDataSet)).BeginInit();
@@ -260,26 +260,6 @@
             this.Materials_dgv.TabIndex = 0;
             this.Materials_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Materials_dgv_CellContentClick);
             // 
-            // Nazwa
-            // 
-            this.Nazwa.HeaderText = "Nazwa";
-            this.Nazwa.Name = "Nazwa";
-            // 
-            // Typ
-            // 
-            this.Typ.HeaderText = "Typ";
-            this.Typ.Name = "Typ";
-            // 
-            // Zadysponowana
-            // 
-            this.Zadysponowana.HeaderText = "Ilość";
-            this.Zadysponowana.Name = "Zadysponowana";
-            // 
-            // Jednostka
-            // 
-            this.Jednostka.HeaderText = "Jednostka";
-            this.Jednostka.Name = "Jednostka";
-            // 
             // zamowieniaBindingSource
             // 
             this.zamowieniaBindingSource.DataMember = "Zamowienia";
@@ -361,6 +341,26 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(658, 687);
             this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // Nazwa
+            // 
+            this.Nazwa.HeaderText = "Nazwa";
+            this.Nazwa.Name = "Nazwa";
+            // 
+            // Typ
+            // 
+            this.Typ.HeaderText = "Typ";
+            this.Typ.Name = "Typ";
+            // 
+            // Zadysponowana
+            // 
+            this.Zadysponowana.HeaderText = "Ilość";
+            this.Zadysponowana.Name = "Zadysponowana";
+            // 
+            // Jednostka
+            // 
+            this.Jednostka.HeaderText = "Jednostka";
+            this.Jednostka.Name = "Jednostka";
             // 
             // ManualAdditionZWMForm
             // 

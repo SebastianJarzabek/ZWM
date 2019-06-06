@@ -106,7 +106,7 @@ namespace ZWM.Classes
 
             orderId = lastOrderId + 1;
 
-            string documentType = "ZWM";
+            string documentType = "ZWM"; 
             
             System.IO.File.Copy(fileZWMToAddPatch, Path.Combine(archivesFolderPatch, zwmfolderPatch, Filename(documentType, orderId, contractNumber, kilometer, plannedDateOfReceipt)), true);
         }
